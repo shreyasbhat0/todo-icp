@@ -1,0 +1,18 @@
+type Todo = record {
+    name: text;
+    description: text;
+    is_completed: bool;
+    
+};
+type CreateResult = variant { Ok : nat64; Err : text };
+type GetTodo = variant { Ok: Todo; Err: text };
+type GetTodos = variant {Ok: vec Todo; Err: text};
+type Update = variant { Ok : bool; Err : text };
+type Delete = variant {Ok : bool; Err: text};
+service : {
+  create_todo : (text,text) -> (CreateResult);
+  get_todo : (nat64) -> (GetTodo) query;
+  get_todos: (nat64,opt nat64) -> (vec Todo) query;
+  update_todo : (nat64, opt text,opt text,opt bool) -> (Update);
+  delete_todo : (nat64) -> (Delete);
+}
