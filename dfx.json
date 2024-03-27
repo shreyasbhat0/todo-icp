@@ -3,7 +3,8 @@
     "todo_backend": {
       "candid": "src/todo_backend/todo_backend.did",
       "package": "todo_backend",
-      "type": "rust"
+      "type": "rust",
+      "optimize": "cycles"
     },
     "todo_frontend": {
       "dependencies": [

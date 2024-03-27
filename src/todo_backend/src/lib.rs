@@ -55,7 +55,7 @@ fn create_todo(name: String, description: String) -> Result<u64, String> {
 fn get_todo(todo_id: u64) -> Result<Todo, String> {
     TODOSTATE.with(|todo_store| match todo_store.borrow().get(&todo_id) {
         Some(todo) => Ok(todo.clone()),
-        None => Err("Invalid id for todo".to_string()),
+        None => Err("Todo Invalid Id".to_string()),
     })
 }
 
